@@ -1,0 +1,23 @@
+my\_package.methods.spatial
+===========================
+
+.. automodule:: my_package.methods.spatial
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

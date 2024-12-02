@@ -1,0 +1,33 @@
+﻿my\_package
+===========
+
+.. automodule:: my_package
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   my_package.methods
+   my_package.models
+   my_package.my_module
+

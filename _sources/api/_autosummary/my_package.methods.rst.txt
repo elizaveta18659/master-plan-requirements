@@ -1,0 +1,31 @@
+my\_package.methods
+===================
+
+.. automodule:: my_package.methods
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   my_package.methods.spatial
+

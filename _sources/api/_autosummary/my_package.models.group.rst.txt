@@ -1,0 +1,29 @@
+my\_package.models.group
+========================
+
+.. automodule:: my_package.models.group
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Group
+   
+   
+
+   
+   
+   
+
+
+

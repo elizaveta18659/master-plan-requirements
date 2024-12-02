@@ -1,0 +1,34 @@
+my\_package.models
+==================
+
+.. automodule:: my_package.models
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   my_package.models.category
+   my_package.models.group
+   my_package.models.requirement
+   my_package.models.tag
+
