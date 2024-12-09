@@ -30,7 +30,7 @@ class Tag(Enum):
   CULTURAL_HERITAGE = 'Объекты культурного наследия'
   ATTRACTIONS = 'Городские достопримечательности'
 
-  # zoning
+  # spatial
   CENTRAL = 'Центральный'
   POTENTIALLY_CENTRAL = 'Потенциально-центральный'
   NON_CENTRAL = 'Не центральный'
