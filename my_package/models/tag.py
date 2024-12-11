@@ -1,4 +1,5 @@
 from enum import Enum
+import pandas as pd
 from .group import Group, GROUP_CATEGORY
 
 class Tag(Enum):
@@ -104,3 +105,9 @@ GROUPS_TAGS = {
 TAG_GROUP = {tag : group for group, tags in GROUPS_TAGS.items() for tag in tags}
 
 TAG_CATEGORY = {tag : GROUP_CATEGORY[group] for group, tags in GROUPS_TAGS.items() for tag in tags}
+
+TAGS_DF = pd.DataFrame([{
+  'tag': tag, 
+  'group': TAG_GROUP[tag], 
+  'category': TAG_CATEGORY[tag]
+} for tag in list(Tag)]).set_index('tag', drop=True)
