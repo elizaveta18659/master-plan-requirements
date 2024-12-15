@@ -92,7 +92,7 @@ Contacts
 --------
 
 You can contact me:
-
+-  `ELizaveta Tumanova <https://t.me/elizaveta18659>`__ - researcher 
 -  `Vasilii Starikov <https://t.me/vasilstar>`__ - assistant
 
 Also, you are welcomed to the `issues <./issues>`__ section!
