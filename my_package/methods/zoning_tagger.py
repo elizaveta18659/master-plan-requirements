@@ -63,8 +63,8 @@ class ZoningTagger():
             return probabilities
         
         blocks_gdf['tags_probabilities'] = blocks_gdf.apply(_get_tags_probabilities, axis=1)
-        blocks_gdf['tag'] = blocks_gdf['tags_probabilities'].apply(lambda probs : max(probs, key=probs.get) if len(probs)>0 else None)
-        blocks_gdf['probability'] = blocks_gdf['tags_probabilities'].apply(lambda probs : max(probs.values()) if len(probs)>0 else None)
+        blocks_gdf['tags'] = blocks_gdf['tags_probabilities'].apply(lambda probs : [max(probs, key=probs.get)] if len(probs)>0 else [])
+        # blocks_gdf['probability'] = blocks_gdf['tags_probabilities'].apply(lambda probs : [max(probs.values())] if len(probs)>0 else [])
         logger.success('Probabilities calculated')
         return blocks_gdf
     
