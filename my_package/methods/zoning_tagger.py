@@ -23,7 +23,7 @@ OSM_TO_TAG = {
 class ZoningTagger():
 
     def __init__(self, blocks_gdf : gpd.GeoDataFrame):
-        self.blocks_gdf = blocks_gdf
+        self.blocks_gdf = blocks_gdf.copy()
 
     def _fetch_osm(self) -> gpd.GeoDataFrame:
         logger.info('Fetching OSM data')
@@ -63,8 +63,8 @@ class ZoningTagger():
             return probabilities
         
         blocks_gdf['tags_probabilities'] = blocks_gdf.apply(_get_tags_probabilities, axis=1)
-        blocks_gdf['tags'] = blocks_gdf['tags_probabilities'].apply(lambda probs : [max(probs, key=probs.get)] if len(probs)>0 else [])
-        # blocks_gdf['probability'] = blocks_gdf['tags_probabilities'].apply(lambda probs : [max(probs.values())] if len(probs)>0 else [])
+        blocks_gdf['zoning_tag'] = blocks_gdf['tags_probabilities'].apply(lambda probs : max(probs, key=probs.get) if len(probs)>0 else None)
+        blocks_gdf['tags'] = blocks_gdf['zoning_tag'].apply(lambda tag : [] if tag is None else [tag])
         logger.success('Probabilities calculated')
         return blocks_gdf
     

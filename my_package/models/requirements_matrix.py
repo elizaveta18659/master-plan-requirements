@@ -1,10 +1,20 @@
+import os
+import numpy as np
+import pandas as pd
+from pathlib import Path
 from .tag import Tag
 from .requirement import Requirement
-import pandas as pd
-import random
 
-# TODO placeholder values
+CURRENT_DIRECTORY = Path(__file__).parent
+CSV_FILENAME = 'requirements_matrix.csv'
+CSV_PATH = CURRENT_DIRECTORY / CSV_FILENAME
 
-REQUIREMENTS = {tag : {req : random.choice([True, False, None]) for req in list(Requirement)} for tag in list(Tag)}
+REPLACEMENT_MAPPING = {
+    'да' : True,
+    'нет' : False,
+    np.nan : None
+}
 
-REQUIREMENTS_MATRIX = pd.DataFrame.from_dict(REQUIREMENTS, orient='index')
+_df = pd.read_csv(CSV_PATH, delimiter=';').set_index('Теги', drop=True)
+
+REQUIREMENTS_MATRIX = pd.DataFrame(_df.values, index=[Tag(i) for i in _df.index], columns=[Requirement(c) for c in _df.columns]).replace(REPLACEMENT_MAPPING)

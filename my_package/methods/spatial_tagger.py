@@ -30,7 +30,7 @@ LIVING_AREA_COEFFICIENT = 0.8
 class SpatialTagger():
 
     def __init__(self, blocks_gdf : gpd.GeoDataFrame):
-        self.blocks_gdf = blocks_gdf
+        self.blocks_gdf = blocks_gdf.copy()
 
     def _fetch_osm(self) -> gpd.GeoDataFrame:
         logger.info('Fetching OSM data')

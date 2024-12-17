@@ -4,7 +4,7 @@ from .group import Group, GROUP_CATEGORY
 
 class Tag(Enum):
   # zoning
-  RESIDENTIAL = "Жилая"
+  RESIDENTIAL = "Жилая зона"
   PUBLIC_BUSINESS = "Общественно-деловая"
   INDUSTRIAL = "Производственная"
   ENGINEERING_TRANSPORT = "Инженерная и транспортная инф"
