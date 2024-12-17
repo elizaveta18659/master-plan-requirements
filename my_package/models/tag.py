@@ -4,12 +4,14 @@ from .group import Group, GROUP_CATEGORY
 
 class Tag(Enum):
   # zoning
-  RESIDENTIAL = 'Жилая'
-  COMMERCIAL = 'Коммерческая'
-  INDUSTRIAL = 'Промышленная'
-  AGRICULTURE = 'Сельскохозяйственная'
-  SOCIAL = 'Социальная'
-  RECREATION = 'Водно-зеленый каркас'
+  RESIDENTIAL = "Жилая"
+  PUBLIC_BUSINESS = "Общественно-деловая"
+  INDUSTRIAL = "Производственная"
+  ENGINEERING_TRANSPORT = "Инженерная и транспортная инф"
+  AGRICULTURAL = "С/Х использования"
+  RECREATIONAL = "Рекреационная"
+  ZOUIT = "ЗОУИТ"
+  SPECIAL_PURPOSE = "Специального назначения"
   
   # relation
   CITY_SIGNIFICANCE = 'Общегородского значения'
@@ -51,11 +53,13 @@ class Tag(Enum):
 GROUPS_TAGS = {
   Group.FUNCTIONAL_ZONE : [
     Tag.RESIDENTIAL,
-    Tag.COMMERCIAL,
+    Tag.PUBLIC_BUSINESS,
     Tag.INDUSTRIAL,
-    Tag.AGRICULTURE,
-    Tag.SOCIAL,
-    Tag.RECREATION,
+    Tag.ENGINEERING_TRANSPORT,
+    Tag.AGRICULTURAL,
+    Tag.RECREATIONAL,
+    Tag.ZOUIT,
+    Tag.SPECIAL_PURPOSE
   ],
   Group.TRANSPORT : [
     Tag.CITY_SIGNIFICANCE,
