@@ -5,27 +5,28 @@ TRANSITION_PROBABILITIES : dict[Tag, dict[Tag, float]] = {
   Tag.RESIDENTIAL : {
     Tag.RESIDENTIAL : 1
   },
-  Tag.COMMERCIAL : {
-    Tag.COMMERCIAL : 0.5,
+  Tag.PUBLIC_AND_BUSINESS : {
+    Tag.PUBLIC_AND_BUSINESS : 0.5,
     Tag.RECREATION : 0.5
   },
   Tag.INDUSTRIAL : {
-    Tag.INDUSTRIAL : 0.5,
-    Tag.COMMERCIAL : 0.3,
-    Tag.SOCIAL : 0.1,
-    Tag.RESIDENTIAL : 0.1
+    Tag.INDUSTRIAL : 0.5
   },
-  Tag.AGRICULTURE : {
+  Tag.ENGINEERING_AND_TRANSPORTATION_INFRASTRUCTURE : {
     Tag.RECREATION : 0.5,
     Tag.SOCIAL : 0.5
   },
-  Tag.SOCIAL : {
+  Tag.AGRICULTURAL : {
     Tag.SOCIAL : 1
   },
-  Tag.RECREATION : {
+  Tag.RECREATIONAL : {
     Tag.RECREATION : 1
+  },
+  Tag.SPETIAL_PURPOSE :{
+    Tag.INDUSTRIAL : 0.5
   }
 }
+
 
 TRANSITION_MATRIX = pd.DataFrame(0.0, index=TRANSITION_PROBABILITIES.keys(), columns=TRANSITION_PROBABILITIES.keys())
 for tag_a, tag_probs in TRANSITION_PROBABILITIES.items():

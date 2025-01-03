@@ -8,7 +8,7 @@ class Group(Enum):
   TRANSPORT = 'Транспорт'
   INFRASTRUCTURE = 'Инфраструктура'
   COASTAL_OBJECTS = 'Прибрежные объекты'
-  ICONIC_OBJECTS = 'Знаковые объекты'
+  LANDMARK_OBJECTS = 'Знаковые объекты'
   # spatial parameters
   CENTRALITY = 'Центральность'
   PURPOSE = 'Назначение'
@@ -23,7 +23,7 @@ CATEGORIES_GROUPS = {
     Group.TRANSPORT,
     Group.INFRASTRUCTURE,
     Group.COASTAL_OBJECTS,
-    Group.ICONIC_OBJECTS,
+    Group.LANDMARK_OBJECTS,
   ],
   Category.SPATIAL_PARAMETERS : {
     Group.CENTRALITY,

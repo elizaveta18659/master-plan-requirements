@@ -5,11 +5,12 @@ from .group import Group, GROUP_CATEGORY
 class Tag(Enum):
   # zoning
   RESIDENTIAL = 'Жилая'
-  COMMERCIAL = 'Коммерческая'
-  INDUSTRIAL = 'Промышленная'
-  AGRICULTURE = 'Сельскохозяйственная'
-  SOCIAL = 'Социальная'
-  RECREATION = 'Водно-зеленый каркас'
+  PUBLIC_AND_BUSINESS = 'Общественно-деловая'
+  INDUSTRIAL = 'Производственная'
+  ENGINEERING_AND_TRANSPORTATION_INFRASTRUCTURE = 'Инженерной и транспортной инфраструктуры'
+  AGRICULTURAL = 'Сельскохозяйственного использования'
+  RECREATIONAL = 'Рекреационная'
+  SPETIAL_PURPOSE = 'Специального назначения'
   
   # relation
   CITY_SIGNIFICANCE = 'Общегородского значения'
@@ -43,19 +44,20 @@ class Tag(Enum):
   DENSE = 'Плотная'
   LOW_DENSITY = 'Низкоплотная'
 
-  HIGH_RISE = 'Высотная'
-  MULTI_STOREY = 'Многоэтажная'
+  HIGH_RISE = 'Многоэтажная'
   MID_RISE = 'Среднеэтажная'
   LOW_RISE = 'Малоэтажная'
+
 
 GROUPS_TAGS = {
   Group.FUNCTIONAL_ZONE : [
     Tag.RESIDENTIAL,
-    Tag.COMMERCIAL,
+    Tag.PUBLIC_AND_BUSINESS,
     Tag.INDUSTRIAL,
-    Tag.AGRICULTURE,
-    Tag.SOCIAL,
-    Tag.RECREATION,
+    Tag.ENGINEERING_AND_TRANSPORTATION_INFRASTRUCTURE,
+    Tag.AGRICULTURAL,
+    Tag.RECREATIONAL,
+    Tag.SPETIAL_PURPOSE,
   ],
   Group.TRANSPORT : [
     Tag.CITY_SIGNIFICANCE,
@@ -75,7 +77,7 @@ GROUPS_TAGS = {
     Tag.CITY_EMBANKMENT,
     Tag.BEACH
   ],
-  Group.ICONIC_OBJECTS : [
+  Group.LANDMARK_OBJECTS : [
     Tag.DOMINANT,
     Tag.CULTURAL_HERITAGE,
     Tag.ATTRACTIONS
@@ -96,7 +98,6 @@ GROUPS_TAGS = {
   ],
   Group.STOREYS_NUMBER : [
     Tag.HIGH_RISE,
-    Tag.MULTI_STOREY,
     Tag.MID_RISE,
     Tag.LOW_RISE
   ]
