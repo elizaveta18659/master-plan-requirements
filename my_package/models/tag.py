@@ -11,6 +11,14 @@ class Tag(Enum):
   AGRICULTURAL = "Сельскохозяйсвенного использования"
   RECREATIONAL = "Рекреационная"
   SPETIAL_PURPOSE = "Специального назначения"
+  RESIDENTIAL = "Жилая зона"
+  PUBLIC_BUSINESS = "Общественно-деловая"
+  INDUSTRIAL = "Производственная"
+  ENGINEERING_TRANSPORT = "Инженерная и транспортная инф"
+  AGRICULTURAL = "С/Х использования"
+  RECREATIONAL = "Рекреационная"
+  ZOUIT = "ЗОУИТ"
+  SPECIAL_PURPOSE = "Специального назначения"
   
   # relation
   CITY_SIGNIFICANCE = 'Общегородского значения'
@@ -53,11 +61,17 @@ GROUPS_TAGS = {
   Group.FUNCTIONAL_ZONE : [
     Tag.RESIDENTIAL,
     Tag.PUBLIC_AND_BUSINESS,
+    Tag.PUBLIC_BUSINESS,
     Tag.INDUSTRIAL,
     Tag.ENGINEERING_AND_TRANSPORTATION,
     Tag.AGRICULTURAL,
     Tag.RECREATIONAL,
     Tag.SPETIAL_PURPOSE
+    Tag.ENGINEERING_TRANSPORT,
+    Tag.AGRICULTURAL,
+    Tag.RECREATIONAL,
+    Tag.ZOUIT,
+    Tag.SPECIAL_PURPOSE
   ],
   Group.TRANSPORT : [
     Tag.CITY_SIGNIFICANCE,

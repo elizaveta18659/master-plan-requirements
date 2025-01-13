@@ -42,6 +42,7 @@ dev = [ # зависимости, необходимые для разработ
     "mapclassify==2.6.1",       # Визуализация данных в Jupyter
     "folium==0.14.0",           # Карты для Jupyter
     "matplotlib==3.10.0",
+    "matplotlib==3.10.0",
     "matplotlib-inline==0.1.6", # Встроенные графики в Jupyter
     "ipykernel",                # Ядро для работы в Jupyter
     "jupyter",                  # Jupyter Notebook
