@@ -11,40 +11,33 @@ class Tag(Enum):
   AGRICULTURAL = "Сельскохозяйсвенного использования"
   RECREATIONAL = "Рекреационная"
   SPETIAL_PURPOSE = "Специального назначения"
-  RESIDENTIAL = "Жилая зона"
-  PUBLIC_BUSINESS = "Общественно-деловая"
-  INDUSTRIAL = "Производственная"
-  ENGINEERING_TRANSPORT = "Инженерная и транспортная инф"
-  AGRICULTURAL = "С/Х использования"
-  RECREATIONAL = "Рекреационная"
-  ZOUIT = "ЗОУИТ"
-  SPECIAL_PURPOSE = "Специального назначения"
   
   # relation
-  CITY_SIGNIFICANCE = 'Общегородского значения'
-  DISTRICT_SIGNIFICANCE = 'Районного значения'
-  LOCAL_SIGNIFICANCE = 'Местного значения'
+  CITY_LEVEL = 'Общегородского значения'
+  DISTRICT_LEVEL = 'Районного значения'
+  LOCAL_LEVEL = 'Местного значения'
   
-  MEDICAL_INSTITUTIONS = 'Медицинские учреждения'
-  EDUCATIONAL_INSUTITIONS = 'Образовательные учреждения'
+  MEDICAL_FACILITIES = 'Медицинские учреждения'
+  EDUCATIONAL_FACILITIES = 'Образовательные учреждения'
   SPORTS_FACILITIES = 'Спортивные объекты'
-  COMMERCIAL_OBJECTS = 'Коммерческие объекты'
-  CULTURAL_OBJECTS = 'Культурные объекты'
+  COMMERCIAL_FACILITIES = 'Коммерческие объекты'
+  CULTURAL_FACILITIES = 'Культурные объекты'
   RECREATIONAL_FACILITIES = 'Рекреационные объекты'
+  TOURISTIC_FACILITIES = 'Туристические объекты'
 
   WATER_OBJECT = 'Водный объект'
   CITY_EMBANKMENT = 'Городская набережная'
   BEACH = 'Пляж'
+  
+  CITY_FOREST = 'Городской лес'
+  PARK = 'Скверы и парки'
+  LINEAR_GREEN = 'Линейное озеленение'
 
-  DOMINANT = 'Доминанты и видовые объекты'
+  DOMINANT = 'Доминанты'
   CULTURAL_HERITAGE = 'Объекты культурного наследия'
   ATTRACTIONS = 'Городские достопримечательности'
 
   # spatial
-  CENTRAL = 'Центральный'
-  POTENTIALLY_CENTRAL = 'Потенциально-центральный'
-  NON_CENTRAL = 'Не центральный'
-
   LIVING = 'Жилая'
   NON_LIVING = 'Нежилая'
   MIXED = 'Смешанная'
@@ -61,30 +54,25 @@ GROUPS_TAGS = {
   Group.FUNCTIONAL_ZONE : [
     Tag.RESIDENTIAL,
     Tag.PUBLIC_AND_BUSINESS,
-    Tag.PUBLIC_BUSINESS,
     Tag.INDUSTRIAL,
     Tag.ENGINEERING_AND_TRANSPORTATION,
     Tag.AGRICULTURAL,
     Tag.RECREATIONAL,
     Tag.SPETIAL_PURPOSE
-    Tag.ENGINEERING_TRANSPORT,
-    Tag.AGRICULTURAL,
-    Tag.RECREATIONAL,
-    Tag.ZOUIT,
-    Tag.SPECIAL_PURPOSE
   ],
   Group.TRANSPORT : [
-    Tag.CITY_SIGNIFICANCE,
-    Tag.DISTRICT_SIGNIFICANCE,
-    Tag.LOCAL_SIGNIFICANCE,
+    Tag.CITY_LEVEL,
+    Tag.DISTRICT_LEVEL,
+    Tag.LOCAL_LEVEL,
   ],
   Group.INFRASTRUCTURE : [
-    Tag.MEDICAL_INSTITUTIONS,
-    Tag.EDUCATIONAL_INSUTITIONS,
+    Tag.MEDICAL_FACILITIES,
+    Tag.EDUCATIONAL_FACILITIES,
     Tag.SPORTS_FACILITIES,
-    Tag.COMMERCIAL_OBJECTS,
-    Tag.CULTURAL_OBJECTS,
-    Tag.RECREATIONAL_FACILITIES
+    Tag.COMMERCIAL_FACILITIES,
+    Tag.CULTURAL_FACILITIES,
+    Tag.RECREATIONAL_FACILITIES,
+    Tag.TOURISTIC_FACILITIES
   ],
   Group.COASTAL_OBJECTS : [
     Tag.WATER_OBJECT,
@@ -96,11 +84,7 @@ GROUPS_TAGS = {
     Tag.CULTURAL_HERITAGE,
     Tag.ATTRACTIONS
   ],
-  Group.CENTRALITY : [
-    Tag.CENTRAL,
-    Tag.NON_CENTRAL,
-    Tag.POTENTIALLY_CENTRAL,
-  ],
+
   Group.PURPOSE : [
     Tag.LIVING,
     Tag.NON_LIVING,
