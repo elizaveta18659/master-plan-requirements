@@ -10,10 +10,10 @@ OSM_TAGS = {'landuse': True}
 
 OSM_TO_TAG = {
     "residential": Tag.RESIDENTIAL,
-    "commercial": Tag.PUBLIC_BUSINESS,
-    "retail": Tag.PUBLIC_BUSINESS,
+    "commercial": Tag.PUBLIC_AND_BUSINESS,
+    "retail": Tag.PUBLIC_AND_BUSINESS,
     "industrial": Tag.INDUSTRIAL,
-    "railway": Tag.ENGINEERING_TRANSPORT,
+    "railway": Tag.ENGINEERING_AND_TRANSPORTATION,
     "farmland": Tag.AGRICULTURAL,
     "park": Tag.RECREATIONAL,
     "forest": Tag.RECREATIONAL,
@@ -22,31 +22,32 @@ OSM_TO_TAG = {
 
 class ZoningTagger():
 
-    def __init__(self, blocks_gdf : gpd.GeoDataFrame):
+    def __init__(self, blocks_gdf : gpd.GeoDataFrame, lu_to_tag : dict[str, Tag] = OSM_TO_TAG):
         self.blocks_gdf = blocks_gdf.copy()
+        self.lu_to_tag = lu_to_tag
 
-    def _fetch_osm(self) -> gpd.GeoDataFrame:
+    def fetch_osm(self) -> gpd.GeoDataFrame:
         logger.info('Fetching OSM data')
         polygon = self.blocks_gdf.to_crs(DEFAULT_CRS).union_all().convex_hull
         osm_data = ox.features_from_polygon(polygon, tags=OSM_TAGS)
         osm_gdf = osm_data.reset_index(drop=True)[['geometry', 'landuse']]
         osm_gdf = osm_gdf[osm_gdf.geom_type.isin(['Polygon', 'MultiPolygon'])]
-        osm_gdf = osm_gdf.to_crs(self.blocks_gdf.crs)
         logger.success('OSM data fetched')
         return osm_gdf
     
-    def _process_osm(self, osm_gdf : gpd.GeoDataFrame) -> gpd.GeoDataFrame:
-        logger.info('Processing OSM data')
-        osm_gdf = osm_gdf.copy()
-        osm_gdf['landuse'] = osm_gdf['landuse'].apply(OSM_TO_TAG.get)
-        osm_gdf = osm_gdf[~osm_gdf['landuse'].isna()]
-        logger.success('OSM data processed')
-        return osm_gdf
+    def _process_data(self, lu_gdf : gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+        logger.info('Processing data')
+        lu_gdf = lu_gdf.copy()
+        lu_gdf['landuse'] = lu_gdf['landuse'].apply(self.lu_to_tag.get)
+        lu_gdf = lu_gdf[~lu_gdf['landuse'].isna()]
+        lu_gdf = lu_gdf.to_crs(self.blocks_gdf.crs)
+        logger.success('Data processed')
+        return lu_gdf
     
-    def _get_probabilities(self, blocks_gdf : gpd.GeoDataFrame, osm_gdf : gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    def _get_probabilities(self, blocks_gdf : gpd.GeoDataFrame, lu_gdf : gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         logger.info('Calculating probabilities') 
         blocks_gdf = blocks_gdf.copy()
-        sjoin_gdf = blocks_gdf.sjoin(osm_gdf, predicate='intersects')
+        sjoin_gdf = blocks_gdf.sjoin(lu_gdf, predicate='intersects')
 
         def _get_tags_probabilities(series):
             block_i = series.name
@@ -55,8 +56,8 @@ class ZoningTagger():
             gdf = sjoin_gdf[sjoin_gdf.index == block_i]
             probabilities = {}
             for lu_i in gdf['index_right']:
-                lu_tag = osm_gdf.loc[lu_i, 'landuse']
-                lu_geometry = osm_gdf.loc[lu_i, 'geometry']
+                lu_tag = lu_gdf.loc[lu_i, 'landuse']
+                lu_geometry = lu_gdf.loc[lu_i, 'geometry']
                 intersection_geometry = shapely.intersection(lu_geometry, block_geometry)
                 intersection_area = intersection_geometry.area
                 probabilities[lu_tag] = intersection_area/block_area
@@ -68,10 +69,14 @@ class ZoningTagger():
         logger.success('Probabilities calculated')
         return blocks_gdf
     
-    def run(self):
+    def run(self, lu_gdf : gpd.GeoDataFrame | None = None):
         
-        osm_gdf = self._fetch_osm()
-        osm_gdf = self._process_osm(osm_gdf)
-        blocks_gdf = self._get_probabilities(self.blocks_gdf, osm_gdf)
+        if lu_gdf is None:
+            logger.warning('No landuse data is provided')
+            lu_gdf = self.fetch_osm()
+        else:
+            assert 'landuse' in lu_gdf.columns, 'landuse gdf must contain "landuse" column'
+        lu_gdf = self._process_data(lu_gdf)
+        blocks_gdf = self._get_probabilities(self.blocks_gdf, lu_gdf)
 
         return blocks_gdf
