@@ -10,9 +10,10 @@ CSV_FILENAME = 'requirements_matrix.csv'
 CSV_PATH = CURRENT_DIRECTORY / CSV_FILENAME
 
 REPLACEMENT_MAPPING = {
-    # 'да' : True,
-    # 'нет' : False,
-    np.nan : 0
+    1 : True,
+    -1 : False, 
+    np.nan : None,
+    0 : None,
 }
 
 _df = pd.read_csv(CSV_PATH, delimiter=';').set_index('Теги', drop=True)
