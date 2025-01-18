@@ -11,8 +11,7 @@ DEFAULT_CRS = 4326
 OSM_TAGS = {'building': True}
 
 FLOORS_TAGS = {
-    20: Tag.HIGH_RISE,
-    9: Tag.MULTI_STOREY,
+    9: Tag.HIGH_RISE,
     5: Tag.MID_RISE,
     1: Tag.LOW_RISE
 }
