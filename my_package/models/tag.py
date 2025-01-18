@@ -7,15 +7,15 @@ class Tag(Enum):
   RESIDENTIAL = "Жилая зона"
   PUBLIC_AND_BUSINESS = "Общественно-деловая"
   INDUSTRIAL = "Производственная"
-  ENGINEERING_AND_TRANSPORTATION = "Инженерная и транспортная инфраструктуры"
+  ENGINEERING_AND_TRANSPORTATION = "Инженерная и транспортная инфраструктура"
   AGRICULTURAL = "Сельскохозяйсвенного использования"
   RECREATIONAL = "Рекреационная"
-  SPETIAL_PURPOSE = "Специального назначения"
+  SPECIAL_PURPOSE = "Специального назначения"
   
   # relation
-  CITY_LEVEL = 'Общегородского значения'
-  DISTRICT_LEVEL = 'Районного значения'
-  LOCAL_LEVEL = 'Местного значения'
+  CITY_LEVEL = 'Городского уровня'
+  DISTRICT_LEVEL = 'Районного уровня'
+  LOCAL_LEVEL = 'Местного уровня'
   
   MEDICAL_FACILITIES = 'Медицинские учреждения'
   EDUCATIONAL_FACILITIES = 'Образовательные учреждения'
@@ -31,11 +31,11 @@ class Tag(Enum):
   
   CITY_FOREST = 'Городской лес'
   PARK = 'Скверы и парки'
-  LINEAR_GREEN = 'Линейное озеленение'
+  LINEAR_GREENERY = 'Линейное озеленение'
 
   DOMINANT = 'Доминанты'
   CULTURAL_HERITAGE = 'Объекты культурного наследия'
-  ATTRACTIONS = 'Городские достопримечательности'
+  CITY_LANDMARK = 'Городские достопримечательности'
 
   # spatial
   LIVING = 'Жилая'
@@ -45,9 +45,9 @@ class Tag(Enum):
   DENSE = 'Плотная'
   LOW_DENSITY = 'Низкоплотная'
 
-  HIGH_RISE = 'Многоэтажная'
-  MID_RISE = 'Среднеэтажная'
-  LOW_RISE = 'Малоэтажная'
+  HIGH_RISE = 'Многоэтажная (9-16+)'
+  MID_RISE = 'Среднеэтажная (5-8)'
+  LOW_RISE = 'Малоэтажная (1-4)'
 
 
 GROUPS_TAGS = {
@@ -58,7 +58,7 @@ GROUPS_TAGS = {
     Tag.ENGINEERING_AND_TRANSPORTATION,
     Tag.AGRICULTURAL,
     Tag.RECREATIONAL,
-    Tag.SPETIAL_PURPOSE
+    Tag.SPECIAL_PURPOSE,
   ],
   Group.TRANSPORT : [
     Tag.CITY_LEVEL,
@@ -79,10 +79,15 @@ GROUPS_TAGS = {
     Tag.CITY_EMBANKMENT,
     Tag.BEACH
   ],
-  Group.LANDMARK_OBJECTS : [
+  Group.GREENERY_OBJECTS : [
+    Tag.CITY_FOREST,
+    Tag.PARK,
+    Tag.LINEAR_GREENERY,
+  ],
+  Group.ICONIC_OBJECT : [
     Tag.DOMINANT,
     Tag.CULTURAL_HERITAGE,
-    Tag.ATTRACTIONS
+    Tag.CITY_LANDMARK,
   ],
 
   Group.PURPOSE : [

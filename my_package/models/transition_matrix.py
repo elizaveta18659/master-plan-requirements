@@ -20,8 +20,8 @@ TRANSITION_PROBABILITIES : dict[Tag, dict[Tag, float]] = {
   Tag.RECREATIONAL : {
     Tag.RECREATIONAL : 1
   },
-  Tag.SPETIAL_PURPOSE :{
-    Tag.SPETIAL_PURPOSE : 0.5
+  Tag.SPECIAL_PURPOSE :{
+    Tag.SPECIAL_PURPOSE : 0.5
   }
 }
 

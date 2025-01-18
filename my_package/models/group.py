@@ -9,9 +9,8 @@ class Group(Enum):
   INFRASTRUCTURE = 'Инфраструктура'
   COASTAL_OBJECTS = 'Прибрежные объекты'
   GREENERY_OBJECTS = 'Объекты озеленения'
-  LANDMARK_OBJECTS = 'Знаковые объекты'
+  ICONIC_OBJECT = 'Знаковые объекты'
   # spatial parameters
-  CENTRALITY = 'Центральность'
   PURPOSE = 'Назначение'
   DENSITY = 'Плотность'
   STOREYS_NUMBER = 'Этажность'
@@ -25,10 +24,9 @@ CATEGORIES_GROUPS = {
     Group.INFRASTRUCTURE,
     Group.COASTAL_OBJECTS,
     Group.GREENERY_OBJECTS,
-    Group.LANDMARK_OBJECTS,
+    Group.ICONIC_OBJECT,
   ],
   Category.SPATIAL_PARAMETERS : {
-    Group.CENTRALITY,
     Group.PURPOSE,
     Group.DENSITY,
     Group.STOREYS_NUMBER
