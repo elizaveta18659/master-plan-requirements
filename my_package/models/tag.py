@@ -84,7 +84,7 @@ GROUPS_TAGS = {
     Tag.PARK,
     Tag.LINEAR_GREENERY,
   ],
-  Group.ICONIC_OBJECT : [
+  Group.LANDMARK_OBJECT : [
     Tag.DOMINANT,
     Tag.CULTURAL_HERITAGE,
     Tag.CITY_LANDMARK,
