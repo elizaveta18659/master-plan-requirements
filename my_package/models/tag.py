@@ -24,6 +24,7 @@ class Tag(Enum):
   CULTURAL_FACILITIES = 'Культурные объекты'
   RECREATIONAL_FACILITIES = 'Рекреационные объекты'
   TOURISTIC_FACILITIES = 'Туристические объекты'
+  ADMINISTRATIVE_FACILITIES = 'Администаривные учреждения'
 
   WATER_OBJECT = 'Водный объект'
   CITY_EMBANKMENT = 'Городская набережная'
@@ -31,7 +32,7 @@ class Tag(Enum):
   
   CITY_FOREST = 'Городской лес'
   PARK = 'Скверы и парки'
-  LINEAR_GREENERY = 'Линейное озеленение'
+  LOCAL_GREENERY = 'Линейное озеленение'
 
   DOMINANT = 'Доминанты'
   CULTURAL_HERITAGE = 'Объекты культурного наследия'
@@ -72,7 +73,8 @@ GROUPS_TAGS = {
     Tag.COMMERCIAL_FACILITIES,
     Tag.CULTURAL_FACILITIES,
     Tag.RECREATIONAL_FACILITIES,
-    Tag.TOURISTIC_FACILITIES
+    Tag.TOURISTIC_FACILITIES, 
+    Tag.ADMINISTRATIVE_FACILITIES
   ],
   Group.COASTAL_OBJECTS : [
     Tag.WATER_OBJECT,
@@ -82,10 +84,9 @@ GROUPS_TAGS = {
   Group.GREENERY_OBJECTS : [
     Tag.CITY_FOREST,
     Tag.PARK,
-    Tag.LINEAR_GREENERY,
+    Tag.LOCAL_GREENERY,
   ],
   Group.LANDMARK_OBJECT : [
-    Tag.DOMINANT,
     Tag.CULTURAL_HERITAGE,
     Tag.CITY_LANDMARK,
   ],
