@@ -10,30 +10,25 @@ DEFAULT_CRS = 4326
 OBJECT_TYPES = {
     # TRANSPORT
     Tag.CITY_LEVEL: {
-    'aerodrome':3000, 
-    'heliport':3000, 
-    'helipad':3000, 
-    'railway':3000,
-    'train_building':3000, 
-    'train_station':3000
-    'bus_station':1500, +
+    'aerodrome':30000, 
+    'heliport_centroids':30000, 
+    'helipad':30000, 
+    'train_station':15000
+    'bus_station':3000, 
     'marina':3000
     },
     Tag.DISTRICT_LEVEL : {
-    'parking':1, +
-    'bus_stop':500, +
-    'subway_entrance':1500+
-    'transportation':500, 
+    'parking':1, 
+    'bus_stop':500, 
+    'subway_entrance':1500,
     'platform':500, 
-    'subway':1500, 
     'tram':500, 
-    'tram_stop':500,
     'monorail':1
     },
     Tag.LOCAL_LEVEL : {
     'cycleway':1,
-    'bicycle_parking':300, 
-    'kick-scooter_parking':300, 
+    'bicycle_parking':500, 
+    'kick-scooter_parking':500, 
     'aerialway':500
     },
     # INFRASTRUCTURE
@@ -56,7 +51,6 @@ OBJECT_TYPES = {
         'psychologist': 1000,
         'crisis_centre': 1000,
         'morgue': 1000,
-        'optician': 1000,
         'psychiatry': 1000, 
         'neuropsychiatric_dispensary': 1000,
         'vaccination': 1000,
@@ -86,11 +80,11 @@ OBJECT_TYPES = {
         'traffic_park': 1500
     },
     Tag.SPORTS_FACILITIES : {
-        'grandstand': 500,
-        'riding_hall': 500, 
+        'grandstand': 1500,
+        'riding_hall': 1500, 
         'sports_hall': 500, 
         'sports_centre': 500, 
-        'stadium': 1500, 
+        'stadium': 3000, 
         'disc_golf_course': 1500, 
         'fitness_centre': 500, 
         'fitness_station': 500, 
@@ -105,7 +99,6 @@ OBJECT_TYPES = {
         'trampoline_park': 1500,
     }, 
     Tag.COMMERCIAL_FACILITIES : {  
-        'commercial': 1500,
         'kiosk': 500,
         'office': 1500,
         'retail': 1500,
@@ -133,15 +126,12 @@ OBJECT_TYPES = {
         'tobacco': 500,
         'сopyshop': 500,
         'estate_agent': 1500
-        'insurance': 500,
         'lawyer': 500,
-        'notary': 500,
-        'shoemaker': 500,
         'hairdresser': 500,
         'public_bath': 500,
         'money_lender': 500,
         'pharmacy': 500,
-        'bakery':500, 
+        'bakery':500,
         'barpub':500, 
         'cafe':500, 
         'restaurant':1500, 
@@ -149,10 +139,13 @@ OBJECT_TYPES = {
         'bar':500, 
         'fast_food':500, 
         'food_court':500, 
-        'pub':500, 
         'post_office':1500, 
         'car_repair':500, 
-        'fuel':500
+        'fuel':500,
+        'optician': 500, 
+        'shop_car':1500,
+        'car_rental':1500, 
+        'shoe_repair':1500
     },
 
     Tag.CULTURAL_FACILITIES : {
@@ -161,7 +154,7 @@ OBJECT_TYPES = {
         'arts_centre':1500,
         'cinema':3000,
         'community_centre':3000,
-        'conference_centre':1500, 
+        'conference_centre':3000, 
         'events_venue':1500, 
         'exhibition_centre':3000, 
         'music_venue':1500, 
@@ -175,9 +168,9 @@ OBJECT_TYPES = {
         'bowling_alley':1500, 
         'dance':1500, 
         'escape_game':1500, 
-        'fountain':1, 
-        'place_of_worship':3000, 
-        'religion':3000
+        'fountain':500, 
+        'place_of_worship':1500, 
+        'religion':1500
     }, 
 
     Tag.RECREATIONAL_FACILITIES : {
@@ -188,12 +181,11 @@ OBJECT_TYPES = {
         'sauna':1500, 
         'water_park':1500, 
         'theme_park':1500, 
-        'zoo':1500, 
-        'playground':1, 
-        'mall':1500, 
+        'zoo':1500,
+        'playground':500, 
+        'mall':3000, 
         'night_club':1500, 
-        'water_park':1500, 
-        'circus':1500
+        'circus':1500 
     },
 
     Tag.TOURISTIC_FACILITIES : {
@@ -201,8 +193,8 @@ OBJECT_TYPES = {
         'hostel':1500, 
         'hotel':1500, 
         'apartment':1500, 
-        'information':1500, 
-        'motel':1
+        'tourist_information':1500, 
+        'motel':1500
     },
     Tag.ADMINISTRATIVE_FACILITIES: {
         'fire_station':12000,
@@ -212,23 +204,18 @@ OBJECT_TYPES = {
         'military':1500, 
         'social_facility':3000, 
         'social_centre':3000, 
-        'stage':1, 
-        'ambulance_station':6000, 
-        'courthouse':1, 
+        'courthouse':3000, 
         'mfz':1500, 
         'ministry':1500, 
         'register_office':1500, 
-        'police':1, 
-        'prison':1, 
-        'prosecutor':1, 
-        'tax':1, 
+        'police':3000, 
+        'prison':3000, 
         'nursing_home':3000
     }
 
     # COASTAL
     Tag.WATER_OBJECT: {
         'water':1500, 
-        'salt_pond':1500
     },
     Tag.CITY_EMBANKMENT : {
         'embankment':1500
@@ -241,13 +228,11 @@ OBJECT_TYPES = {
     Tag.CITY_FOREST: {
         'forest':1500, 
         'nature_reserve':1500,
-        'wood':1500, 
     },
     Tag.PARK: {
-        'park':800, 
-        'garden':300, 
-        'recreation_ground':300,
-        'orchad':300
+        'city_park':800, 
+        'park':300,
+        'garden':300
     },
     Tag.LOCAL_GREENERY: {
         'shrubbery':1, 
@@ -257,7 +242,7 @@ OBJECT_TYPES = {
     # LANDMARK
     Tag.CULTURAL_HERITAGE: {
         'historic':1500, 
-        'OKN':1
+        'ZON_OKN':1 
     },
     Tag.CITY_LANDMARK: {
         'artwork':1500, 
