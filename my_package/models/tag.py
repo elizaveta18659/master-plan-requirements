@@ -34,7 +34,6 @@ class Tag(Enum):
   PARK = 'Скверы и парки'
   LOCAL_GREENERY = 'Линейное озеленение'
 
-  DOMINANT = 'Доминанты'
   CULTURAL_HERITAGE = 'Объекты культурного наследия'
   CITY_LANDMARK = 'Городские достопримечательности'
 

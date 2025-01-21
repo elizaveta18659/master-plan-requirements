@@ -17,14 +17,14 @@ class Group(Enum):
 
 CATEGORIES_GROUPS = {
   Category.ZONING : [
-    Group.FUNCTIONAL_ZONE,
+    Group.FUNCTIONAL_ZONE
   ],
   Category.OBJECT_RELATION : [
     Group.TRANSPORT,
     Group.INFRASTRUCTURE,
     Group.COASTAL_OBJECTS,
     Group.GREENERY_OBJECTS,
-    Group.LANDMARK_OBJECT,
+    Group.LANDMARK_OBJECT
   ],
   Category.SPATIAL_PARAMETERS : {
     Group.PURPOSE,
