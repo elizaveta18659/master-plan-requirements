@@ -2,6 +2,7 @@ from enum import Enum
 
 class Requirement(Enum):
   
+  TRANSPORT_PLACEMENT_CITY = 'Размещение транспортной инфраструктуры городского уровня'
   TRANSPORT_PLACEMENT_DISTRICT = 'Размещение транспортной инфраструктуры районного уровня'
   TRANSPORT_PLACEMENT_LOCAL = 'Размещение транспортной инфраструктуры местного уровня'
   
