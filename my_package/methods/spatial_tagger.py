@@ -33,7 +33,7 @@ class SpatialTagger():
 
     def _fetch_osm(self) -> gpd.GeoDataFrame:
         logger.info('Fetching OSM data')
-        polygon = self.blocks_gdf.to_crs(DEFAULT_CRS).union_all().convex_hull
+        polygon = self.blocks_gdf.to_crs(DEFAULT_CRS).geometry.unary_union.convex_hull
         osm_data = ox.features_from_polygon(polygon, tags=OSM_TAGS)
         osm_gdf = osm_data.reset_index(drop=True)[["geometry", "building", "building:levels", "height"]]
         osm_gdf = osm_gdf.to_crs(self.blocks_gdf.crs)
