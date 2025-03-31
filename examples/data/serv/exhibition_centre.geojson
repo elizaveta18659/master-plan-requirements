@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "exhibition_centre",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "full_id": "n1465764895", "osm_id": "1465764895", "osm_type": "node", "access": null, "entrance": null, "barrier": "gate" }, "geometry": { "type": "Point", "coordinates": [ 30.2354955, 59.9320052 ] } },
+{ "type": "Feature", "properties": { "full_id": "n2145204543", "osm_id": "2145204543", "osm_type": "node", "access": null, "entrance": "main", "barrier": null }, "geometry": { "type": "Point", "coordinates": [ 30.3468197, 59.9868509 ] } },
+{ "type": "Feature", "properties": { "full_id": "n4978999665", "osm_id": "4978999665", "osm_type": "node", "access": null, "entrance": null, "barrier": "lift_gate" }, "geometry": { "type": "Point", "coordinates": [ 30.235262, 59.9275744 ] } },
+{ "type": "Feature", "properties": { "full_id": "n10911911624", "osm_id": "10911911624", "osm_type": "node", "access": "private", "entrance": null, "barrier": "gate" }, "geometry": { "type": "Point", "coordinates": [ 30.2352888, 59.932436 ] } },
+{ "type": "Feature", "properties": { "full_id": "n11203268296", "osm_id": "11203268296", "osm_type": "node", "access": null, "entrance": "service", "barrier": null }, "geometry": { "type": "Point", "coordinates": [ 30.3464421, 59.9869401 ] } }
+]
+}

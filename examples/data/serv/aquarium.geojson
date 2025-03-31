@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "aquarium",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "full_id": "n986234938", "osm_id": "986234938", "osm_type": "node", "tourism": "aquarium", "level": null, "indoor": null, "website": "https://океанариум.рф/", "phone": "+7 812 4480077", "payment:visa": "yes", "payment:mastercard": "yes", "payment:debit_cards": "yes", "payment:credit_cards": "yes", "payment:cash": "yes", "opening_hours": "Mo-Su 10:00-20:00; Jan 01 off;Mo[3] off", "name": "Океанариум" }, "geometry": { "type": "Point", "coordinates": [ 30.3382664, 59.9190485 ] } },
+{ "type": "Feature", "properties": { "full_id": "n11954350340", "osm_id": "11954350340", "osm_type": "node", "tourism": "aquarium", "level": "0", "indoor": "yes", "website": null, "phone": null, "payment:visa": null, "payment:mastercard": null, "payment:debit_cards": null, "payment:credit_cards": null, "payment:cash": null, "opening_hours": null, "name": "Аквариум запорожец" }, "geometry": { "type": "Point", "coordinates": [ 30.6228803, 59.7386698 ] } },
+{ "type": "Feature", "properties": { "full_id": "n12218965384", "osm_id": "12218965384", "osm_type": "node", "tourism": "aquarium", "level": "0", "indoor": "yes", "website": null, "phone": null, "payment:visa": null, "payment:mastercard": null, "payment:debit_cards": null, "payment:credit_cards": null, "payment:cash": null, "opening_hours": null, "name": "Аквариум Lincoln Town Car" }, "geometry": { "type": "Point", "coordinates": [ 30.6228926, 59.7391945 ] } }
+]
+}

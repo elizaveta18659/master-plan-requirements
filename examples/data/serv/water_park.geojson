@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "water_park",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "full_id": "n897381029", "osm_id": "897381029", "osm_type": "node", "leisure": "water_park", "description": null, "website": "https://www.aqua-rodeo.ru/", "phone": "+7 812 6777055", "payment:visa_electron": "yes", "payment:visa": "yes", "payment:sbp": "yes", "payment:mir": "yes", "payment:mastercard": "yes", "payment:maestro": "yes", "payment:debit_cards": "yes", "payment:credit_cards": "yes", "payment:contactless": "yes", "payment:cash": "yes", "opening_hours": "Mo-Fr 10:00-23:00; Sa-Su 9:00-23:00", "name": "Родео Драйв", "level": "0", "internet_access": "no", "check_date": "2024-05-14", "addr:street": "проспект Культуры", "addr:postcode": "195274", "addr:housenumber": "1", "addr:floor": "1", "addr:city": "Санкт-Петербург" }, "geometry": { "type": "Point", "coordinates": [ 30.3669208, 60.0341083 ] } },
+{ "type": "Feature", "properties": { "full_id": "n2069844821", "osm_id": "2069844821", "osm_type": "node", "leisure": "water_park", "description": "Аквапарк", "website": "http://aqua.piterland.ru/", "phone": "+78127771555", "payment:visa_electron": null, "payment:visa": null, "payment:sbp": null, "payment:mir": null, "payment:mastercard": null, "payment:maestro": null, "payment:debit_cards": null, "payment:credit_cards": null, "payment:contactless": null, "payment:cash": null, "opening_hours": "Tu-Su 10:00-22:30; Mo 15:00-22:30", "name": "Аквапарк Питерлэнд", "level": null, "internet_access": null, "check_date": null, "addr:street": "Приморский проспект", "addr:postcode": null, "addr:housenumber": "72", "addr:floor": null, "addr:city": null }, "geometry": { "type": "Point", "coordinates": [ 30.2104069, 59.9807209 ] } }
+]
+}

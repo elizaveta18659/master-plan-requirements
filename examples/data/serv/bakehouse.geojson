@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "bakehouse",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "full_id": "n4946534946", "osm_id": "4946534946", "osm_type": "node", "bakehouse": "yes", "name:ru": null, "name:en": null, "description": null, "contact:instagram": null, "shop": "bakery", "phone": "+7 952 2076667", "payment:debit_cards": "yes", "payment:credit_cards": "yes", "payment:coins": "yes", "payment:cash": "yes", "pastry": "yes", "opening_hours": "Mo-Su 09:00-23:00", "name:ka": "ბატონი შოთის", "name": "Батони шоти" }, "geometry": { "type": "Point", "coordinates": [ 30.3649054, 60.0521597 ] } },
+{ "type": "Feature", "properties": { "full_id": "n9501475194", "osm_id": "9501475194", "osm_type": "node", "bakehouse": "yes", "name:ru": "Зое", "name:en": "Zoe", "description": "Круассаны, пончики, слойки с кремом, хлеб из подовой печи (багет, тартин, мишборд).", "contact:instagram": "https://www.instagram.com/zoethebakery/", "shop": "bakery", "phone": null, "payment:debit_cards": null, "payment:credit_cards": null, "payment:coins": null, "payment:cash": null, "pastry": null, "opening_hours": "Tu-Su 08:00-19:00; Mo 08:00-18:00", "name:ka": null, "name": "Зое" }, "geometry": { "type": "Point", "coordinates": [ 30.3637093, 59.9391813 ] } }
+]
+}

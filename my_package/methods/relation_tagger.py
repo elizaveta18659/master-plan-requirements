@@ -11,9 +11,9 @@ OBJECT_TYPES = {
     # TRANSPORT
     Tag.CITY_LEVEL: {
     'aerodrome':30000, 
-    'heliport_centroids':30000, 
+    'heliport':30000, 
     'helipad':30000, 
-    'train_station':15000
+    'train_station':15000,
     'bus_station':3000, 
     'marina':3000
     },
@@ -22,14 +22,12 @@ OBJECT_TYPES = {
     'bus_stop':500, 
     'subway_entrance':1500,
     'platform':500, 
-    'tram':500, 
-    'monorail':1
+    'tram':500
     },
     Tag.LOCAL_LEVEL : {
     'cycleway':1,
     'bicycle_parking':500, 
-    'kick-scooter_parking':500, 
-    'aerialway':500
+    'kick-scooter_parking':500
     },
     # INFRASTRUCTURE
     Tag.MEDICAL_FACILITIES : {
@@ -70,20 +68,15 @@ OBJECT_TYPES = {
         'library': 1500,
         'training': 1500,
         'dop_education': 1500,
-        'exam_centre': 1500,
         'children_dop_education': 1500,
         'dancing_school': 1500,
         'driving_school': 1500,
         'research_institute': 1500,
-        'first_aid_school': 1500,
-        'surf_school': 1500,
         'traffic_park': 1500
     },
     Tag.SPORTS_FACILITIES : {
         'grandstand': 1500,
-        'riding_hall': 1500, 
         'sports_hall': 500, 
-        'sports_centre': 500, 
         'stadium': 3000, 
         'disc_golf_course': 1500, 
         'fitness_centre': 500, 
@@ -95,8 +88,7 @@ OBJECT_TYPES = {
         'pitch_centroids': 500, 
         'swimming_pool': 3000, 
         'track_centroids': 500, 
-        'dive_centre': 1500, 
-        'trampoline_park': 1500,
+        'dive_centre': 1500
     }, 
     Tag.COMMERCIAL_FACILITIES : {  
         'kiosk': 500,
@@ -124,8 +116,7 @@ OBJECT_TYPES = {
         'houseware': 500,
         'shop_sport': 500,
         'tobacco': 500,
-        'сopyshop': 500,
-        'estate_agent': 1500
+        'estate_agent': 1500,
         'lawyer': 500,
         'hairdresser': 500,
         'public_bath': 500,
@@ -154,7 +145,6 @@ OBJECT_TYPES = {
         'arts_centre':1500,
         'cinema':3000,
         'community_centre':3000,
-        'conference_centre':3000, 
         'events_venue':1500, 
         'exhibition_centre':3000, 
         'music_venue':1500, 
@@ -164,7 +154,6 @@ OBJECT_TYPES = {
         'gallery':3000, 
         'adult_gaming_centre':1500, 
         'amusement_arcade':1500, 
-        'bathing_place':1500, 
         'bowling_alley':1500, 
         'dance':1500, 
         'escape_game':1500, 
@@ -174,7 +163,6 @@ OBJECT_TYPES = {
     }, 
 
     Tag.RECREATIONAL_FACILITIES : {
-        'bird_hide':1500, 
         'dog_park':600, 
         'fishing':1500, 
         'resort':1500, 
@@ -184,7 +172,6 @@ OBJECT_TYPES = {
         'zoo':1500,
         'playground':500, 
         'mall':3000, 
-        'night_club':1500, 
         'circus':1500 
     },
 
@@ -196,33 +183,17 @@ OBJECT_TYPES = {
         'tourist_information':1500, 
         'motel':1500
     },
-    Tag.ADMINISTRATIVE_FACILITIES: {
-        'fire_station':12000,
-        'government':1500, 
-        'gatehouse':1500, 
-        'public':1500, 
-        'military':1500, 
-        'social_facility':3000, 
-        'social_centre':3000, 
-        'courthouse':3000, 
-        'mfz':1500, 
-        'ministry':1500, 
-        'register_office':1500, 
-        'police':3000, 
-        'prison':3000, 
-        'nursing_home':3000
-    }
 
     # COASTAL
     Tag.WATER_OBJECT: {
-        'water':1500, 
+        'water':1500
     },
     Tag.CITY_EMBANKMENT : {
         'embankment':1500
     },
     Tag.BEACH : {
         'beach':1500, 
-        'beach_resort':1500
+
     },
     # GREENERY
     Tag.CITY_FOREST: {
@@ -234,7 +205,7 @@ OBJECT_TYPES = {
         'park':300,
         'garden':300
     },
-    Tag.LOCAL_GREENERY: {
+    Tag. LINEAR_GREENERY: {
         'shrubbery':1, 
         'grass':1,
         'wetland':1, 

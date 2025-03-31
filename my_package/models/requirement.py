@@ -1,8 +1,7 @@
 from enum import Enum
 
 class Requirement(Enum):
-  
-  TRANSPORT_PLACEMENT_CITY = 'Размещение транспортной инфраструктуры городского уровня'
+
   TRANSPORT_PLACEMENT_DISTRICT = 'Размещение транспортной инфраструктуры районного уровня'
   TRANSPORT_PLACEMENT_LOCAL = 'Размещение транспортной инфраструктуры местного уровня'
   
@@ -19,8 +18,7 @@ class Requirement(Enum):
   OBJECT_PLACEMENT_SPORTS = 'Размещение нового объекта: спортивная инфраструктура'
   OBJECT_PLACEMENT_CULTURAL = 'Размещение нового объекта: культурная инфраструктура'
   OBJECT_PLACEMENT_GREENERY = 'Размещение нового объекта: озеленение территории'
-  OBJECT_PLACEMENT_ICONIC = 'Размещение нового объекта: знаковые объекты'
-  OBJECT_PLACEMENT_ADMINISTRATIVE = 'Размещение нового объекта: административные объекты'
+  OBJECT_PLACEMENT_LANDMARK = 'Размещение нового объекта: знаковые объекты'
 
   HEIGHT_LOW_RISE = 'Регулирование высотности: рекомендуется малоэтажная застрйока'
   HEIGHT_MID_RISE = 'Регулирование высотности: рекомендуется среднеэтажная застройка'

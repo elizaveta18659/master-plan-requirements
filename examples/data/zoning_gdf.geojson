@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "zoning_gdf",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32636" } },
+"features": [
+
+]
+}

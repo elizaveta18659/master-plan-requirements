@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "CHANGE_1_EDU",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32636" } },
+"features": [
+
+]
+}

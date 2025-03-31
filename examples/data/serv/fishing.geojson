@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "fishing",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "full_id": "n5678581062", "osm_id": "5678581062", "osm_type": "node", "leisure": "fishing" }, "geometry": { "type": "Point", "coordinates": [ 29.8963523, 59.8890654 ] } },
+{ "type": "Feature", "properties": { "full_id": "n7884876104", "osm_id": "7884876104", "osm_type": "node", "leisure": "fishing" }, "geometry": { "type": "Point", "coordinates": [ 29.5107285, 60.1794507 ] } }
+]
+}

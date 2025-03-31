@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "adult_gaming_centre",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "full_id": "n10601271084", "osm_id": "10601271084", "osm_type": "node", "leisure": "adult_gaming_centre", "opening_hours": "24/7", "name": "Krug zone", "contact:website": "https://vk.link/krugzone", "contact:phone": "+7 981 9985993", "contact:email": "krugzone@mail.ru" }, "geometry": { "type": "Point", "coordinates": [ 30.3896319, 59.9836535 ] } },
+{ "type": "Feature", "properties": { "full_id": "n10601320243", "osm_id": "10601320243", "osm_type": "node", "leisure": "adult_gaming_centre", "opening_hours": "24/7", "name": "Cyber space", "contact:website": "https://cyberspacespb.ru", "contact:phone": "+7 921 7670003", "contact:email": "1@cyberspacespb.ru" }, "geometry": { "type": "Point", "coordinates": [ 30.1520134, 59.8584565 ] } },
+{ "type": "Feature", "properties": { "full_id": "n10601320257", "osm_id": "10601320257", "osm_type": "node", "leisure": "adult_gaming_centre", "opening_hours": "24/7", "name": "Reflex", "contact:website": "https://reflex-cyberclub.ru", "contact:phone": "+7 981 0236969", "contact:email": "reflexcyber1@mail.ru" }, "geometry": { "type": "Point", "coordinates": [ 30.4827261, 59.9188741 ] } }
+]
+}

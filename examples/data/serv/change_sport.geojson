@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "change_sport",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 3, "NAME": "EDU" }, "geometry": { "type": "Point", "coordinates": [ 30.285515652384614, 59.900617033972637 ] } }
+]
+}

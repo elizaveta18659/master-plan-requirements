@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "sports_hall",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "full_id": "n9965887562", "osm_id": "9965887562", "osm_type": "node", "entrance": "yes" }, "geometry": { "type": "Point", "coordinates": [ 29.85332, 59.8765783 ] } },
+{ "type": "Feature", "properties": { "full_id": null, "osm_id": null, "osm_type": "sports_hall", "entrance": null }, "geometry": { "type": "Point", "coordinates": [ 30.22739924350995, 59.974773111988796 ] } },
+{ "type": "Feature", "properties": { "full_id": null, "osm_id": null, "osm_type": "sports_hall", "entrance": null }, "geometry": { "type": "Point", "coordinates": [ 30.262947942387576, 59.899329014470041 ] } },
+{ "type": "Feature", "properties": { "full_id": null, "osm_id": null, "osm_type": "sports_hall", "entrance": null }, "geometry": { "type": "Point", "coordinates": [ 30.266438976227992, 59.887245400760293 ] } },
+{ "type": "Feature", "properties": { "full_id": null, "osm_id": null, "osm_type": "sports_hall", "entrance": null }, "geometry": { "type": "Point", "coordinates": [ 30.493837796032476, 59.962162034443367 ] } },
+{ "type": "Feature", "properties": { "full_id": null, "osm_id": null, "osm_type": "sports_hall", "entrance": null }, "geometry": { "type": "Point", "coordinates": [ 30.588682773373037, 59.732434197846857 ] } }
+]
+}
