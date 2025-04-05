@@ -1,0 +1,23 @@
+my\_package.models.transition\_matrix
+=====================================
+
+.. automodule:: my_package.models.transition_matrix
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
