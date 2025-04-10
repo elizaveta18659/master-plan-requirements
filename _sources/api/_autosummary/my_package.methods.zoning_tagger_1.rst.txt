@@ -1,0 +1,29 @@
+my\_package.methods.zoning\_tagger\_1
+=====================================
+
+.. automodule:: my_package.methods.zoning_tagger_1
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      ZoneTagger
+   
+   
+
+   
+   
+   
+
+
+

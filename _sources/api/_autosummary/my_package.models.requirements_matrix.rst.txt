@@ -1,0 +1,23 @@
+my\_package.models.requirements\_matrix
+=======================================
+
+.. automodule:: my_package.models.requirements_matrix
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

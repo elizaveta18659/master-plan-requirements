@@ -1,0 +1,30 @@
+my\_package.models.transition\_matrix
+=====================================
+
+.. automodule:: my_package.models.transition_matrix
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      calculate_transition_matrix
+      get_transition_value
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

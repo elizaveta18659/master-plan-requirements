@@ -1,0 +1,38 @@
+my\_package.methods
+===================
+
+.. automodule:: my_package.methods
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   my_package.methods.get_TEP
+   my_package.methods.get_transition
+   my_package.methods.matrix_solver
+   my_package.methods.relation_tagger
+   my_package.methods.relation_tagger_change
+   my_package.methods.spatial_tagger
+   my_package.methods.zoning_tagger
+   my_package.methods.zoning_tagger_1
+
