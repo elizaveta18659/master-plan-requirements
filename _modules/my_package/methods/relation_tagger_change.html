@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>my_package.methods.relation_tagger_change &mdash; MyPackage 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            MyPackage
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/index.html">Гайд по использованию шаблона</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">MyPackage</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">my_package.methods.relation_tagger_change</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for my_package.methods.relation_tagger_change</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">loguru</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..models.tag</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tag</span>
+
+<span class="n">DEFAULT_CRS</span> <span class="o">=</span> <span class="mi">4326</span>
+
+<span class="n">OBJECT_TYPES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># TRANSPORT</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">CITY_LEVEL</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;aerodrome&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span> 
+    <span class="s1">&#39;heliport&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span> 
+    <span class="s1">&#39;train_station&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span>
+    <span class="s1">&#39;bus_station&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span> 
+    <span class="s1">&#39;marina&#39;</span><span class="p">:</span><span class="mi">1500</span>
+    <span class="p">},</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">DISTRICT_LEVEL</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;parking&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+    <span class="s1">&#39;bus_stop&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+    <span class="s1">&#39;subway_entrance&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span>
+    <span class="s1">&#39;tram&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+    <span class="s1">&#39;change_dist_tr&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">LOCAL_LEVEL</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;cycleway&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+    <span class="s1">&#39;bicycle_parking&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> 
+    <span class="s1">&#39;kick-scooter_parking&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> 
+    <span class="s1">&#39;change_local_tr&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span>
+    <span class="c1"># INFRASTRUCTURE</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">MEDICAL_FACILITIES</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;child_hospital&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;child_polyclinic&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;dentist&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;hospital&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;polyclinic&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;roddom&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;trauma&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;morgue&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;ambulance_station&#39;</span><span class="p">:</span> <span class="mi">1500</span>
+    <span class="p">},</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">EDUCATIONAL_FACILITIES</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;kindergarten&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> 
+        <span class="s1">&#39;school&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;college&#39;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
+        <span class="s1">&#39;university&#39;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
+        <span class="s1">&#39;research_institute&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;change_education&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">SPORTS_FACILITIES</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;grandstand&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;sports_hall&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;stadium&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;fitness_centre&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;pitch_centroids&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;swimming_pool&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;change_sport&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span> 
+    <span class="n">Tag</span><span class="o">.</span><span class="n">COMMERCIAL_FACILITIES</span> <span class="p">:</span> <span class="p">{</span>  
+        <span class="s1">&#39;office&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;retail&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;bank&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;marketplace&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;convenience&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;supermarket&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;shop_pets&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;books&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;clothes&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;craft&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;electronic&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;florist&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;houseware&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;shop_sport&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;pharmacy&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;bakery&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;cafe&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;restaurant&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;bar&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;shop_car&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span>
+
+    <span class="n">Tag</span><span class="o">.</span><span class="n">CULTURAL_FACILITIES</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;museum&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;arts_centre&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;cinema&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;community_centre&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;exhibition_centre&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;planetarium&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;theatre&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>  
+        <span class="s1">&#39;gallery&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;place_of_worship&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;religion&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span> 
+
+    <span class="n">Tag</span><span class="o">.</span><span class="n">RECREATIONAL_FACILITIES</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;dog_park&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;resort&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;sauna&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;water_park&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;theme_park&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;zoo&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;playground&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;mall&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;circus&#39;</span><span class="p">:</span><span class="mi">500</span> 
+    <span class="p">},</span>
+
+    <span class="n">Tag</span><span class="o">.</span><span class="n">TOURISTIC_FACILITIES</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;hostel&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;hotel&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span>
+
+    <span class="c1"># COASTAL</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">WATER_OBJECT</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;water&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">CITY_EMBANKMENT</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;embankment&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">BEACH</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;beach&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+
+    <span class="p">},</span>
+    <span class="c1"># GREENERY</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">CITY_FOREST</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;forest&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;nature_reserve&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">PARK</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;city_park&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span> 
+        <span class="s1">&#39;park&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;garden&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">},</span>
+    <span class="n">Tag</span><span class="o">.</span> <span class="n">LINEAR_GREENERY</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;shrubbery&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;grass&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;wetland&#39;</span><span class="p">:</span><span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="c1"># LANDMARK</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">CULTURAL_HERITAGE</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;historic&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;ZON_OKN&#39;</span><span class="p">:</span><span class="mi">1</span> 
+    <span class="p">},</span>
+    <span class="n">Tag</span><span class="o">.</span><span class="n">CITY_LANDMARK</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;artwork&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;attraction&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span>
+        <span class="s1">&#39;viewpoint&#39;</span><span class="p">:</span><span class="mi">500</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<div class="viewcode-block" id="RelationTaggerCHANGE"><a class="viewcode-back" href="../../../api/_autosummary/my_package.methods.relation_tagger_change.html#my_package.methods.relation_tagger_change.RelationTaggerCHANGE">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">RelationTaggerCHANGE</span><span class="p">():</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blocks_gdf</span> <span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">,</span> <span class="n">objects_gdfs</span> <span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Tag</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blocks_gdf</span> <span class="o">=</span> <span class="n">blocks_gdf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects_gdfs</span> <span class="o">=</span> <span class="p">{</span><span class="n">tag</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_objects_gdf</span><span class="p">(</span><span class="n">objects_gdf</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span> <span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">objects_gdf</span> <span class="ow">in</span> <span class="n">objects_gdfs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">objects_gdf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_process_objects_gdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gdf</span> <span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">,</span> <span class="n">tag</span> <span class="p">:</span> <span class="n">Tag</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">:</span>
+        <span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="o">~</span><span class="n">gdf</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+        <span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blocks_gdf</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+        <span class="n">gdf</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span> <span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">OBJECT_TYPES</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">s</span><span class="o">.</span><span class="n">object_type</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">gdf</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_read_objects_gdf</span><span class="p">(</span><span class="n">data_path</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">object_types</span> <span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">:</span>
+        <span class="n">gdfs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">object_type</span> <span class="ow">in</span> <span class="n">object_types</span><span class="p">:</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">object_type</span><span class="si">}</span><span class="s2">.geojson&quot;</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+                <span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;object_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">object_type</span>
+                <span class="n">gdfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gdf</span><span class="p">[[</span><span class="s1">&#39;geometry&#39;</span><span class="p">,</span> <span class="s1">&#39;object_type&#39;</span><span class="p">]])</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;File read </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Can&#39;t read file </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">gdfs</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">gdfs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="RelationTaggerCHANGE.read_objects_gdfs"><a class="viewcode-back" href="../../../api/_autosummary/my_package.methods.relation_tagger_change.html#my_package.methods.relation_tagger_change.RelationTaggerCHANGE.read_objects_gdfs">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_objects_gdfs</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data_path</span> <span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Tag</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">tag</span> <span class="p">:</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_read_objects_gdf</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">ot_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">ot_dict</span> <span class="ow">in</span> <span class="n">OBJECT_TYPES</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div>
+    
+<div class="viewcode-block" id="RelationTaggerCHANGE.run"><a class="viewcode-back" href="../../../api/_autosummary/my_package.methods.relation_tagger_change.html#my_package.methods.relation_tagger_change.RelationTaggerCHANGE.run">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">:</span>
+        <span class="n">blocks_gdf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks_gdf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">gdf</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">objects_gdfs</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">gdf</span> <span class="ow">is</span> <span class="kc">None</span> <span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">intersection_gdf</span> <span class="o">=</span> <span class="n">blocks_gdf</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">gdf</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">&#39;intersects&#39;</span><span class="p">)</span>
+            <span class="n">blocks_gdf</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">blocks_gdf</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span> <span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">intersection_gdf</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">get_tags</span><span class="p">(</span><span class="n">series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Tag</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">column</span> <span class="k">for</span> <span class="n">column</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">series</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">Tag</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span><span class="p">)]</span>
+
+        <span class="n">blocks_gdf</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">blocks_gdf</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_tags</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">blocks_gdf</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2025, IDU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

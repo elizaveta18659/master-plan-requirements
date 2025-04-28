@@ -1,0 +1,29 @@
+my\_package.models.requirement
+==============================
+
+.. automodule:: my_package.models.requirement
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Requirement
+   
+   
+
+   
+   
+   
+
+
+

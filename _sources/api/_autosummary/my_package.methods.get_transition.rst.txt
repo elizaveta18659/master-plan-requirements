@@ -1,0 +1,31 @@
+my\_package.methods.get\_transition
+===================================
+
+.. automodule:: my_package.methods.get_transition
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      TRANSITION_RESULT
+      compute_zone_transitions
+      normalize_zoning_change
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,29 @@
+my\_package.methods.get\_TEP
+============================
+
+.. automodule:: my_package.methods.get_TEP
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      TEP_RESULT
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

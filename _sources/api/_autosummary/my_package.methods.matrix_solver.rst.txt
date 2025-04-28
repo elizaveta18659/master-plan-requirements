@@ -1,0 +1,29 @@
+my\_package.methods.matrix\_solver
+==================================
+
+.. automodule:: my_package.methods.matrix_solver
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      MatrixSolver
+   
+   
+
+   
+   
+   
+
+
+

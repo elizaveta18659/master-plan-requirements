@@ -1,0 +1,29 @@
+my\_package.methods.relation\_tagger
+====================================
+
+.. automodule:: my_package.methods.relation_tagger
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      RelationTagger
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,29 @@
+my\_package.methods.spatial\_tagger
+===================================
+
+.. automodule:: my_package.methods.spatial_tagger
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      SpatialTagger
+   
+   
+
+   
+   
+   
+
+
+

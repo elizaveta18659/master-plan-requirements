@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Категории, группы и теги &mdash; MyPackage 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API documentation" href="../api/index.html" />
+    <link rel="prev" title="Examples" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MyPackage
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">Гайд по использованию шаблона</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Категории, группы и теги</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Матрица-перехода">Матрица перехода</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Матрица-требований">Матрица требований</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Черновик-решения-матрицы">Черновик решения матрицы</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MyPackage</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Examples</a></li>
+      <li class="breadcrumb-item active">Категории, группы и теги</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/my_example.nblink.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Категории,-группы-и-теги">
+<h1>Категории, группы и теги<a class="headerlink" href="#Категории,-группы-и-теги" title="Permalink to this heading"></a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from my_package.models import Tag, TAGS_DF
+
+TAGS_DF.head()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>category</th>
+    </tr>
+    <tr>
+      <th>tag</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tag.RESIDENTIAL</th>
+      <td>Group.FUNCTIONAL_ZONE</td>
+      <td>Category.ZONING</td>
+    </tr>
+    <tr>
+      <th>Tag.PUBLIC_AND_BUSINESS</th>
+      <td>Group.FUNCTIONAL_ZONE</td>
+      <td>Category.ZONING</td>
+    </tr>
+    <tr>
+      <th>Tag.INDUSTRIAL</th>
+      <td>Group.FUNCTIONAL_ZONE</td>
+      <td>Category.ZONING</td>
+    </tr>
+    <tr>
+      <th>Tag.ENGINEERING_AND_TRANSPORTATION</th>
+      <td>Group.FUNCTIONAL_ZONE</td>
+      <td>Category.ZONING</td>
+    </tr>
+    <tr>
+      <th>Tag.AGRICULTURAL</th>
+      <td>Group.FUNCTIONAL_ZONE</td>
+      <td>Category.ZONING</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Можем для каждой группы/категории вывести дочерние вещи</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for category in TAGS_DF.category.unique():
+  print(category.value)
+  category_df = TAGS_DF[TAGS_DF.category == category]
+  for group in category_df.group.unique():
+    print(&#39;|- &#39; + group.value)
+    group_df = category_df[category_df.group == group]
+    for tag in group_df.index:
+      print(&#39;|  |- &#39; + tag.value)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Зонирование
+|- Функциональная зона
+|  |- Жилая зона
+|  |- Общественно-деловая
+|  |- Производственная
+|  |- Инженерная и транспортная инфраструктура
+|  |- Сельскохозяйсвенного использования
+|  |- Рекреационная
+|  |- Специального назначения
+По отношению к объекту
+|- Транспорт
+|  |- Городского уровня
+|  |- Районного уровня
+|  |- Местного уровня
+|- Инфраструктура
+|  |- Медицинские учреждения
+|  |- Образовательные учреждения
+|  |- Спортивные объекты
+|  |- Коммерческие объекты
+|  |- Культурные объекты
+|  |- Рекреационные объекты
+|  |- Туристические объекты
+|  |- Администаривные учреждения
+|- Прибрежные объекты
+|  |- Водный объект
+|  |- Городская набережная
+|  |- Пляж
+|- Объекты озеленения
+|  |- Городской лес
+|  |- Скверы и парки
+|  |- Линейное озеленение
+|- Знаковые объекты
+|  |- Объекты культурного наследия
+|  |- Городские достопримечательности
+Пространственные параметры
+|- Назначение
+|  |- Жилая
+|  |- Нежилая
+|  |- Смешанная
+|- Плотность
+|  |- Плотная
+|  |- Низкоплотная
+|- Этажность
+|  |- Многоэтажная (9-16+)
+|  |- Среднеэтажная (5-8)
+|  |- Малоэтажная (1-4)
+</pre></div></div>
+</div>
+<p>Можем для тэга получить его категорию и группу</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tag_info = TAGS_DF.loc[Tag.AGRICULTURAL]
+tag_info.category, tag_info.group
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(&lt;Category.ZONING: &#39;Зонирование&#39;&gt;,
+ &lt;Group.FUNCTIONAL_ZONE: &#39;Функциональная зона&#39;&gt;)
+</pre></div></div>
+</div>
+</section>
+<section id="Матрица-перехода">
+<h1>Матрица перехода<a class="headerlink" href="#Матрица-перехода" title="Permalink to this heading"></a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from my_package.models.transition_matrix import TRANSITION_MATRIX
+
+TRANSITION_MATRIX
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tag.RESIDENTIAL</th>
+      <th>Tag.PUBLIC_AND_BUSINESS</th>
+      <th>Tag.INDUSTRIAL</th>
+      <th>Tag.ENGINEERING_AND_TRANSPORTATION</th>
+      <th>Tag.AGRICULTURAL</th>
+      <th>Tag.RECREATIONAL</th>
+      <th>Tag.SPECIAL_PURPOSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tag.RESIDENTIAL</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Tag.PUBLIC_AND_BUSINESS</th>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Tag.INDUSTRIAL</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Tag.ENGINEERING_AND_TRANSPORTATION</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Tag.AGRICULTURAL</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Tag.RECREATIONAL</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Tag.SPECIAL_PURPOSE</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Матрица-требований">
+<h1>Матрица требований<a class="headerlink" href="#Матрица-требований" title="Permalink to this heading"></a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import sys
+sys.path.append(r&#39;C:/repos/master-plan-requirements&#39;)
+from my_package.models.requirements_matrix import REQUIREMENTS_MATRIX
+
+REQUIREMENTS_MATRIX.head()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Requirement.TRANSPORT_PLACEMENT_DISTRICT</th>
+      <th>Requirement.TRANSPORT_PLACEMENT_LOCAL</th>
+      <th>Requirement.COMMERCIAL_PLACEMENT</th>
+      <th>Requirement.PUBLIC_SPACE_CITY</th>
+      <th>Requirement.PUBLIC_SPACE_DISTRICT</th>
+      <th>Requirement.PUBLIC_SPACE_LOCAL</th>
+      <th>Requirement.PROTECTION_ZONE</th>
+      <th>Requirement.OBJECT_PLACEMENT_MEDICAL</th>
+      <th>Requirement.OBJECT_PLACEMENT_EDUCATIONAL</th>
+      <th>Requirement.OBJECT_PLACEMENT_SPORTS</th>
+      <th>Requirement.OBJECT_PLACEMENT_CULTURAL</th>
+      <th>Requirement.OBJECT_PLACEMENT_GREENERY</th>
+      <th>Requirement.OBJECT_PLACEMENT_LANDMARK</th>
+      <th>Requirement.HEIGHT_LOW_RISE</th>
+      <th>Requirement.HEIGHT_MID_RISE</th>
+      <th>Requirement.HEIGHT_HIGH_RISE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tag.LIVING</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>None</td>
+      <td>True</td>
+      <td>True</td>
+      <td>None</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.PUBLIC_AND_BUSINESS</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>None</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.INDUSTRIAL</th>
+      <td>True</td>
+      <td>None</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>False</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.ENGINEERING_AND_TRANSPORTATION</th>
+      <td>True</td>
+      <td>None</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>False</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.AGRICULTURAL</th>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>False</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Черновик-решения-матрицы">
+<h1>Черновик решения матрицы<a class="headerlink" href="#Черновик-решения-матрицы" title="Permalink to this heading"></a></h1>
+<p>Допустим, у нас выпал набор тегов</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import random
+
+tags = [random.choice(TAGS_DF[TAGS_DF.group == group].index) for group in TAGS_DF.group.unique()]
+tags
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-intense-fg ansi-bold">In[5], line 3</span>
+<span class="ansi-green-fg">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-bold" style="color: rgb(0,0,255)">random</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 3</span> tags <span style="color: rgb(98,98,98)">=</span> [random<span style="color: rgb(98,98,98)">.</span>choice(TAGS_DF[TAGS_DF<span style="color: rgb(98,98,98)">.</span>group <span style="color: rgb(98,98,98)">==</span> group]<span style="color: rgb(98,98,98)">.</span>index) <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> group <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span class="ansi-yellow-bg">TAGS_DF</span><span style="color: rgb(98,98,98)">.</span>group<span style="color: rgb(98,98,98)">.</span>unique()]
+<span class="ansi-green-fg">      4</span> tags
+
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;TAGS_DF&#39; is not defined
+</pre></div></div>
+</div>
+<p>По нему мы выбираем подматрицу</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>SUB_MATRIX = REQUIREMENTS_MATRIX.loc[tags]
+SUB_MATRIX
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Requirement.TRANSPORT_PLACEMENT_DISTRICT</th>
+      <th>Requirement.TRANSPORT_PLACEMENT_LOCAL</th>
+      <th>Requirement.COMMERCIAL_PLACEMENT</th>
+      <th>Requirement.PUBLIC_SPACE_CITY</th>
+      <th>Requirement.PUBLIC_SPACE_DISTRICT</th>
+      <th>Requirement.PUBLIC_SPACE_LOCAL</th>
+      <th>Requirement.PROTECTION_ZONE</th>
+      <th>Requirement.OBJECT_PLACEMENT_MEDICAL</th>
+      <th>Requirement.OBJECT_PLACEMENT_EDUCATIONAL</th>
+      <th>Requirement.OBJECT_PLACEMENT_SPORTS</th>
+      <th>Requirement.OBJECT_PLACEMENT_CULTURAL</th>
+      <th>Requirement.OBJECT_PLACEMENT_GREENERY</th>
+      <th>Requirement.OBJECT_PLACEMENT_LANDMARK</th>
+      <th>Requirement.HEIGHT_LOW_RISE</th>
+      <th>Requirement.HEIGHT_MID_RISE</th>
+      <th>Requirement.HEIGHT_HIGH_RISE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tag.INDUSTRIAL</th>
+      <td>True</td>
+      <td>None</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>False</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.DISTRICT_LEVEL</th>
+      <td>None</td>
+      <td>None</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.SPORTS_FACILITIES</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.CITY_EMBANKMENT</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.PARK</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.CULTURAL_HERITAGE</th>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>False</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.NON_LIVING</th>
+      <td>True</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.LOW_DENSITY</th>
+      <td>None</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>Tag.LOW_RISE</th>
+      <td>None</td>
+      <td>None</td>
+      <td>True</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>True</td>
+      <td>None</td>
+      <td>True</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Так примерно выглядит столбец во время разрешивания, надо подумать какая логика может сюда идти</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>column = SUB_MATRIX[SUB_MATRIX.columns[0]]
+column[~column.isna()]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Tag.INDUSTRIAL           True
+Tag.SPORTS_FACILITIES    True
+Tag.CITY_EMBANKMENT      True
+Tag.PARK                 True
+Tag.NON_LIVING           True
+Name: Requirement.TRANSPORT_PLACEMENT_DISTRICT, dtype: object
+</pre></div></div>
+</div>
+<p>И теперь можем попробовать для каждого столбца решить, применяем мы его или нет (правила можно и помудрить)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for requirement in SUB_MATRIX.columns:
+  series = SUB_MATRIX[requirement] # get certain column
+  series = series[~series.isna()] # filter None values for the requirement
+  trues = series[series == True]
+  falses = series[series == False]
+  if len(trues) &gt; len(falses):
+    print(requirement.value, len(trues), len(falses))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Размещение транспортной инфраструктуры районного уровня 5 0
+Размещение транспортной инфраструктуры местного уровня 5 0
+Размещение коммерческих точек 6 0
+Обустройство общественных пространств городского уровня 3 1
+Обустройство общественных пространств районного уровня 3 1
+Обустройство общественных пространств местного уровня 2 1
+Устройство защитной зоны 2 0
+Размещение нового объекта: озеленение территории 4 0
+Регулирование высотности: рекомендуется малоэтажная застрйока 1 0
+Регулирование высотности: рекомендуется среднеэтажная застройка 1 0
+</pre></div></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api/index.html" class="btn btn-neutral float-right" title="API documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2025, IDU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

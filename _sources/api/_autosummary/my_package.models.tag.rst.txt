@@ -1,0 +1,29 @@
+my\_package.models.tag
+======================
+
+.. automodule:: my_package.models.tag
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Tag
+   
+   
+
+   
+   
+   
+
+
+
